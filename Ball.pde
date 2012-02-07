@@ -21,7 +21,7 @@ class Ball {
   }
 
   // Is the particle ready for deletion?
-  boolean done() {
+  boolean lose() {
     // Let's find the screen position of the particle
     Vec2 pos = box2d.getBodyPixelCoord(body);  
     // Check if it's in the center of the screen
@@ -29,7 +29,11 @@ class Ball {
       killBody();
       return true;
     }
-     else  if (pos.y > height-40 && pos.y < height-20 && pos.x > width/2-10 && pos.x < width/2+10) {
+    return false;
+  }
+  boolean win(){
+        Vec2 pos = box2d.getBodyPixelCoord(body);  
+     if (pos.y > height-40 && pos.y < height-20 && pos.x > width/2-10 && pos.x < width/2+10) {
       killBody();
       return true;
     }

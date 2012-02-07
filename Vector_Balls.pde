@@ -95,10 +95,15 @@ strokeWeight(3);
 
   for (int i = balls.size()-1; i >= 0; i--) {
     Ball b = balls.get(i);
-   
-    if (b.done()) {
+    if (b.lose()) {
       balls.remove(i);
-    }
+      counter --;  
+  }
+  if(b.win()){
+  balls.remove(i);
+  counter++;
+  
+  }
   }
   
   
