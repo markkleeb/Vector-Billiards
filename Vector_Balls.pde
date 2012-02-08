@@ -59,12 +59,7 @@ strokeWeight(3);
   stroke(0);
   ellipse(width/2, height-30, 20, 20);
   
-  if(frameCount%120 ==1){
-
-  Ball p = new Ball(15, 15);
-  balls.add(p);
-  
-}  
+ 
 
   if(mousePressed){
     for(Ball b: balls){
@@ -106,11 +101,41 @@ strokeWeight(3);
   }
   }
   
+  if(counter > 9)
+  {
+    fill(255, 0, 0);
+  
+   text("You Win!", width/2-50, height/2-50); 
+   for (int i = balls.size()-1; i >= 0; i--) {
+    Ball b = balls.get(i);
+    balls.remove(i);
+   }
+   text("Play Again?", width/2-50, height/2 - 30);
+
+if(mousePressed && mouseX > width/2 -50 && mouseX < width/2+50 && mouseY> height/2-50 && mouseY < height/2 -40){
+println("Sucess!");
+  restart();
+}  
+
+}
+
+else  if(frameCount%120 ==1){
+
+  Ball p = new Ball(15, 15);
+  balls.add(p);
+  
+}  
   
   fill(0);
   text("Score: " + counter,20,25);
 }
 
+void restart(){
+ 
+ counter = 0;
+ redraw(); 
+  
+}
 
 
 
