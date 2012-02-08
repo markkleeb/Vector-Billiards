@@ -64,6 +64,8 @@ strokeWeight(3);
   if(mousePressed){
     for(Ball b: balls){
       b.attract(mouseX, mouseY);
+      fill(255, 0, 0);
+      text("Mouse Pressed!", 285, 30);
   }
   }
   
